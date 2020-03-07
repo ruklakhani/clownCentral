@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class='mb-4 row'>
+    <a class='btn btn-success mx-2' href="{% url 'edit_post' slug=post.slug %}">Edit</a>
+    <a class="btn btn-danger mx-2" href="{% url 'delete_post' slug=post.slug %}">Delete</a>
+</div>
+<div class="card">
+    <div class="card-header h4"> 
+        {{post.title}}
+    </div>
+    <div class="card-body">
+        {{post.description}}
+    </div>
+    <div class="card-footer">
+        Posted By:
+        {{post.posted_by.username}}
+        at 
+        {{post.time_published}}
+    </div>
+</div>
+{% endblock %}
